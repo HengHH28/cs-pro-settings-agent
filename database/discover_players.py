@@ -52,7 +52,7 @@ def main():
 
         print(f"page {page}: got {len(players)}, collected {len(slugs)}/{total}")
 
-        if len(players) < BATCH or len(slugs) >= (total or 0):
+        if len(slugs) >= (total or 0):
             break
 
         page += 1
