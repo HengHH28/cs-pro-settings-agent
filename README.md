@@ -1,6 +1,7 @@
 # CS Pro Settings Agent
 
 CS2 职业选手设置查询 Agent：用 DeepSeek 大模型驱动，从本地 SQLite 数据库回答选手的灵敏度、DPI、分辨率、准星等游戏设置。
+目前还处于完善阶段并没完成
 
 ## 功能
 
