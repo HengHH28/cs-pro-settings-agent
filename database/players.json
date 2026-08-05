@@ -1,0 +1,570 @@
+{
+    "donk": {
+        "nickname": "donk",
+        "real_name": "Данил Крышковец",
+        "country": "Russia",
+        "team": {
+            "current": "Spirit",
+            "previous": []
+        },
+        "role": [
+            "Rifler"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 800,
+                "sensitivity": 1.25,
+                "edpi": 1000,
+                "mouse": "Logitech G Pro X2",
+                "zoom_sensitivity": 1.0,
+                "hz": 1000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "Yes",
+                "Length": 1,
+                "Thickness": 1,
+                "Gap": -4,
+                "Outline": "No",
+                "Outlinethickness": 0,
+                "Color": "Custom",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 145,
+                "Alpha": "Yes",
+                "Alpha Value": 255,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 7,
+                "Fixed Gap": -9,
+                "Inner Split Alpha": 1,
+                "Outer Split Alpha": 0.5,
+                "Split Size Ratio": 0.3,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.3,
+            "major_wins": 1
+        }
+    },
+    "zywoo": {
+        "nickname": "zywoo",
+        "real_name": "Mathieu Herbaut",
+        "country": "France",
+        "team": {
+            "current": "Vitality",
+            "previous": []
+        },
+        "role": [
+            "AWPer"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 400,
+                "sensitivity": 2.0,
+                "edpi": 800,
+                "mouse": "ZOWIE EC2-CW",
+                "zoom_sensitivity": 1.0,
+                "hz": 1000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 1,
+                "Thickness": 1,
+                "Gap": -5,
+                "Outline": "No",
+                "Outlinethickness": 1,
+                "Color": "Custom",
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255,
+                "Alpha": "Yes",
+                "Alpha Value": 255,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 0,
+                "Fixed Gap": -0.7,
+                "Inner Split Alpha": 1,
+                "Outer Split Alpha": 0.3,
+                "Split Size Ratio": 0.3,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.3,
+            "major_wins": 1
+        }
+    },
+    "s1mple": {
+        "nickname": "s1mple",
+        "real_name": "Олександр Олегович Костилєв",
+        "country": "Ukraine",
+        "team": {
+            "current": "BC.Game Esports",
+            "previous": []
+        },
+        "role": [
+            "AWPer"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 400,
+                "sensitivity": 3.09,
+                "edpi": 1236,
+                "mouse": "Logitech G Pro X Superlight",
+                "zoom_sensitivity": 1.0,
+                "hz": 1000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 1,
+                "Thickness": 1,
+                "Gap": -4,
+                "Outline": "No",
+                "Outlinethickness": 1,
+                "Color": "Custom",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 0,
+                "Alpha": "Yes",
+                "Alpha Value": 200,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 3,
+                "Fixed Gap": 3,
+                "Inner Split Alpha": 0,
+                "Outer Split Alpha": 1,
+                "Split Size Ratio": 1,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.24,
+            "major_wins": 1
+        }
+    },
+    "niko": {
+        "nickname": "niko",
+        "real_name": "Nikola Kovac",
+        "country": "Bosnia and Herzegovina",
+        "team": {
+            "current": "Falcons",
+            "previous": []
+        },
+        "role": [
+            "Rifler"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 800,
+                "sensitivity": 0.9,
+                "edpi": 720,
+                "mouse": "Logitech G Pro X Superlight",
+                "zoom_sensitivity": 0.9,
+                "hz": 2000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 2,
+                "Thickness": 0,
+                "Gap": -4,
+                "Outline": "No",
+                "Outlinethickness": 0,
+                "Color": "Custom",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 145,
+                "Alpha": "Yes",
+                "Alpha Value": 255,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 7,
+                "Fixed Gap": 3,
+                "Inner Split Alpha": 1,
+                "Outer Split Alpha": 0.5,
+                "Split Size Ratio": 0.3,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.15
+        }
+    },
+    "m0nesy": {
+        "nickname": "m0nesy",
+        "real_name": "Илья Осипов",
+        "country": "Russia",
+        "team": {
+            "current": "Falcons",
+            "previous": []
+        },
+        "role": [
+            "AWPer"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 400,
+                "sensitivity": 2.3,
+                "edpi": 920,
+                "mouse": "Logitech G Pro X2",
+                "zoom_sensitivity": 1.0,
+                "hz": 2000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 1,
+                "Thickness": 1,
+                "Gap": -4,
+                "Outline": "No",
+                "Outlinethickness": 0,
+                "Color": "Cyan",
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255,
+                "Alpha": "Yes",
+                "Alpha Value": 200,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 3,
+                "Fixed Gap": 3,
+                "Inner Split Alpha": 0,
+                "Outer Split Alpha": 1,
+                "Split Size Ratio": 1,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.25
+        }
+    },
+    "twistzz": {
+        "nickname": "twistzz",
+        "real_name": "Russel David Kevin Van Dulken",
+        "country": "Canada",
+        "team": {
+            "current": "FaZe Clan",
+            "previous": []
+        },
+        "role": [
+            "Rifler"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 400,
+                "sensitivity": 1.59,
+                "edpi": 636,
+                "mouse": "Logitech G Pro X Superlight",
+                "zoom_sensitivity": 1.1,
+                "hz": 2000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 1,
+                "Thickness": 0,
+                "Gap": -7,
+                "Outline": "No",
+                "Outlinethickness": 0,
+                "Color": "Custom",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 135,
+                "Alpha": "Yes",
+                "Alpha Value": 255,
+                "T Style": "No",
+                "Deployed Weapon Gap": "Yes",
+                "Split Distance": 3,
+                "Fixed Gap": 0,
+                "Inner Split Alpha": 0,
+                "Outer Split Alpha": 1,
+                "Split Size Ratio": 1,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.1,
+            "major_wins": 2
+        }
+    },
+    "ropz": {
+        "nickname": "ropz",
+        "real_name": "Robin Kool",
+        "country": "Estonia",
+        "team": {
+            "current": "Vitality",
+            "previous": []
+        },
+        "role": [
+            "Rifler"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 400,
+                "sensitivity": 1.77,
+                "edpi": 708,
+                "mouse": "Razer DeathAdder V3 Pro",
+                "zoom_sensitivity": 1.0,
+                "hz": 2000
+            },
+            "video": {
+                "resolution": "1920x1080",
+                "aspect_ratio": "16:9",
+                "scaling_mode": "Native",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 2,
+                "Thickness": 0.5,
+                "Gap": -3,
+                "Outline": "No",
+                "Outlinethickness": 0,
+                "Color": "Green",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 0,
+                "Alpha": "Yes",
+                "Alpha Value": 255,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 3,
+                "Fixed Gap": -2,
+                "Inner Split Alpha": 0,
+                "Outer Split Alpha": 1,
+                "Split Size Ratio": 1,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.1,
+            "major_wins": 1
+        }
+    },
+    "device": {
+        "nickname": "device",
+        "real_name": "Nicolai Reedtz",
+        "country": "Denmark",
+        "team": {
+            "current": "Astralis",
+            "previous": []
+        },
+        "role": [
+            "AWPer"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 800,
+                "sensitivity": 0.95,
+                "edpi": 760,
+                "mouse": "ZOWIE EC2",
+                "zoom_sensitivity": 1.0,
+                "hz": 1000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 1,
+                "Thickness": 1,
+                "Gap": -4,
+                "Outline": "No",
+                "Outlinethickness": 1,
+                "Color": "Cyan",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 135,
+                "Alpha": "Yes",
+                "Alpha Value": 255,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 7,
+                "Fixed Gap": -4,
+                "Inner Split Alpha": 1,
+                "Outer Split Alpha": 0.5,
+                "Split Size Ratio": 0.3,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.1,
+            "major_wins": 4
+        }
+    },
+    "frozen": {
+        "nickname": "frozen",
+        "real_name": "David Čerňanský",
+        "country": "Slovakia",
+        "team": {
+            "current": "FaZe Clan",
+            "previous": []
+        },
+        "role": [
+            "Rifler"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 400,
+                "sensitivity": 2.0,
+                "edpi": 800,
+                "mouse": "Razer Viper V3 Pro",
+                "zoom_sensitivity": 0.8,
+                "hz": 4000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 1,
+                "Thickness": 1,
+                "Gap": -4,
+                "Outline": "No",
+                "Outlinethickness": 1,
+                "Color": "Custom",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 168,
+                "Alpha": "Yes",
+                "Alpha Value": 255,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 3,
+                "Fixed Gap": 3,
+                "Inner Split Alpha": 0,
+                "Outer Split Alpha": 1,
+                "Split Size Ratio": 1,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.12,
+            "major_wins": 1
+        }
+    },
+    "broky": {
+        "nickname": "broky",
+        "real_name": "Helvijs Saukants",
+        "country": "Latvia",
+        "team": {
+            "current": "FaZe Clan",
+            "previous": []
+        },
+        "role": [
+            "AWPer"
+        ],
+        "settings": {
+            "mouse": {
+                "dpi": 400,
+                "sensitivity": 1.9,
+                "edpi": 760,
+                "mouse": "Razer DeathAdder V3 Pro",
+                "zoom_sensitivity": 1.2,
+                "hz": 8000
+            },
+            "video": {
+                "resolution": "1280x960",
+                "aspect_ratio": "4:3",
+                "scaling_mode": "Stretched",
+                "display_mode": "Fullscreen"
+            },
+            "crosshair": {
+                "Style": "Classic Static",
+                "Follow Recoil": "No",
+                "Dot": "No",
+                "Length": 2,
+                "Thickness": 1,
+                "Gap": -3,
+                "Outline": "No",
+                "Outlinethickness": 1,
+                "Color": "Yellow",
+                "Red": 0,
+                "Green": 255,
+                "Blue": 0,
+                "Alpha": "Yes",
+                "Alpha Value": 200,
+                "T Style": "No",
+                "Deployed Weapon Gap": "No",
+                "Split Distance": 3,
+                "Fixed Gap": 3,
+                "Inner Split Alpha": 0,
+                "Outer Split Alpha": 1,
+                "Split Size Ratio": 1,
+                "Sniper Width": 0,
+                "code": "Not publicly confirmed"
+            }
+        },
+        "statistics": {
+            "hltv_rating": 1.1,
+            "major_wins": 1
+        }
+    }
+}

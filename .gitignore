@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 环境与密钥
+.env
+
+# 数据、备份与日志
+database/players.db
+database/backups/
+logs/
+.cs_agent_history
+.cache/
+
+# 测试与覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 打包产物
+build/
+dist/
+*.spec
+
+# 操作系统
+Thumbs.db
+.DS_Stores

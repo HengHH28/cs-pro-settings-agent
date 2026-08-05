@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cs-pro-settings-agent"
+version = "1.0.0"
+description = "CS2 professional player settings query agent (DeepSeek)."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain==1.3.14",
+    "langchain-openai==1.4.1",
+    "python-dotenv==1.2.2",
+    "requests==2.34.2",
+    "beautifulsoup4==4.15.0",
+    "lxml==6.1.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "pytest-cov",
+]
+
+[project.scripts]
+cs-agent = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "logging_config"]
+packages = ["agent", "database", "scraper", "tools"]
