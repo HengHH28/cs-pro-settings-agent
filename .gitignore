@@ -14,6 +14,13 @@ database/backups/
 logs/
 .cs_agent_history
 .cache/
+*.bak
+*.bak.*
+
+# 本地实验脚本（Web 页面与聊天脚本，公开前先取消注释再提交）
+# app.py
+# chat_assistant.py
+# static/
 
 # 测试与覆盖率
 .pytest_cache/

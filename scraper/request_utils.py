@@ -5,6 +5,10 @@ import random
 import requests
 
 logger = logging.getLogger("scraper")
+
+# 复用同一个 HTTP 客户端：避免每次请求都新建连接（Liquipedia API 条款要求）
+_SESSION = requests.Session()
+
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
@@ -20,12 +24,13 @@ def get_with_retry(url, *, attempts=3, base_delay=2.0, **kwargs):
     其他 RequestException（如 5xx）返回 None 并记日志。
     """
     headers = dict(kwargs.pop("headers", {}))
-    headers["User-Agent"] = random.choice(USER_AGENTS)
+    if "User-Agent" not in headers:
+        headers["User-Agent"] = random.choice(USER_AGENTS)
     kwargs["headers"] = headers
 
     for attempt in range(1, attempts + 1):
         try:
-            return requests.get(url, **kwargs)
+            return _SESSION.get(url, **kwargs)
         except requests.exceptions.Timeout:
             logger.warning(f"{url} 请求超时 (attempt {attempt}/{attempts})")
         except requests.exceptions.ConnectionError:
