@@ -17,10 +17,11 @@ logs/
 *.bak
 *.bak.*
 
-# 本地实验脚本（Web 页面与聊天脚本，公开前先取消注释再提交）
-# app.py
-# chat_assistant.py
-# static/
+# 本地实验脚本（Web 页面与聊天脚本）：默认不公开
+# 如果想连网页版一起公开，删掉下面三行再提交
+app.py
+chat_assistant.py
+static/
 
 # 测试与覆盖率
 .pytest_cache/
