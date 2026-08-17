@@ -247,7 +247,7 @@ def scrape_prosettings(nickname):
     url = f"https://prosettings.net/players/{nickname}/"
 
     headers = {
-        "User-Agent": "Mozilla/5.0"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     }
 
     response = get_with_retry(
@@ -312,7 +312,40 @@ def scrape_prosettings(nickname):
             # 用 update 合并，避免后表覆盖前表导致数据丢失
             data[category].update(temp)
 
+    # 准星代码不在页面表格里，而是由 ProSettings 的前端 JS 动态加载：
+    # 页面元素带 data-player-id，再调用 crosshair-pipeline 接口
+    # 拿到该选手最近一次被检测到的分享码（接口第一条就是最新的）。
+    player_el = soup.select_one("[data-player-id]")
+    player_id = player_el.get("data-player-id") if player_el else None
+    code = _fetch_crosshair_code(player_id)
+    if code and data["crosshair"]:
+        data["crosshair"]["Code"] = code
+
     return data
+
+
+def _fetch_crosshair_code(player_id):
+    """从 ProSettings 的 crosshair-pipeline 接口取最近一次检测到的准星分享码。"""
+    if not player_id:
+        return None
+
+    url = (
+        "https://prosettings.net/wp-json/pro/v1/crosshair-pipeline/"
+        f"history?player_id={player_id}"
+    )
+
+    try:
+        response = get_with_retry(url, timeout=15)
+        if response is None or response.status_code != 200:
+            return None
+
+        history = (response.json() or {}).get("history") or []
+        if history and history[0].get("crosshair_code"):
+            return history[0]["crosshair_code"]
+    except Exception as e:
+        logger.warning(f"crosshair pipeline failed for player {player_id}: {e}")
+
+    return None
 
 
 if __name__ == "__main__":

@@ -347,13 +347,15 @@ def _ensure_schema(conn):
             pass
 
 
-def update_player(nickname, skip_liquipedia=False):
+def update_player(nickname, skip_liquipedia=False, skip_prosettings=False, wiki=None):
     """抓取并更新一名选手的数据。
 
     规则：
       1. 某个数据源返回 error 时，完全跳过该数据源（不写入任何字段）
       2. 抓到的字段为 None 时，不覆盖数据库里的旧值
       3. settings 更新成功后，把快照记进 settings_history
+
+    skip_prosettings=True 时只抓 Liquipedia 补资料，不动设置（用于补全缺失信息）。
     """
     nickname = (nickname or "").strip().lower()
 
@@ -376,17 +378,23 @@ def update_player(nickname, skip_liquipedia=False):
 
         player_id = row[0]
 
-        logger.info("Fetching ProSettings...")
-        pro = scrape_prosettings(nickname)
-
-        if skip_liquipedia:
-            wiki = {}
+        if skip_prosettings:
+            pro = {}
         else:
-            print("Fetching Liquipedia...")
-            wiki = scrape_liquipedia(nickname)
+            logger.info("Fetching ProSettings...")
+            pro = scrape_prosettings(nickname)
+
+        if wiki is None:
+            if skip_liquipedia:
+                wiki = {}
+            else:
+                print("Fetching Liquipedia...")
+                wiki = scrape_liquipedia(nickname)
 
         # ---------- ProSettings：鼠标 / 视频 / 准星 / 视角 ----------
-        if pro.get("error"):
+        if skip_prosettings:
+            pass
+        elif pro.get("error"):
             logger.info(f"  [SKIP] ProSettings scrape failed: {pro['error']}")
         else:
             fields = _collect_settings(player_id, pro)

@@ -291,3 +291,4 @@ def get_player_settings_history(player_name: str, limit: int = 10):
         nickname,
         limit=max(1, min(limit, 30)),
     )
+

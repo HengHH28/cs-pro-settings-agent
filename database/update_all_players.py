@@ -223,6 +223,9 @@ if __name__ == "__main__":
     sync_json = "--sync-json" in args
     prosettings_only = "--prosettings-only" in args
     incremental = "--incremental" in args
+    fill_missing = "--fill-missing" in args
+    fill_stats = "--fill-stats" in args
+    liquipedia_batch = "--liquipedia-batch" in args
     max_age = 7
     if "--max-age" in args:
         idx = args.index("--max-age")
@@ -233,7 +236,56 @@ if __name__ == "__main__":
         if idx + 1 < len(args):
             only = args[idx + 1].strip().lower()
 
-    roster = read_roster()
+    if fill_stats:
+        # 只补统计字段：找还没有 Major/MVP 数据的选手
+        # 注意：建库时手工种的老数据里 MVP/Major 是 0（占位），
+        # 0 不算 NULL，所以这里要把 0 也当成"缺失"重新抓取
+        conn = sqlite3.connect(DB_PATH)
+        try:
+            rows = conn.execute(
+                """
+                SELECT p.nickname FROM players p
+                LEFT JOIN statistics s ON s.player_id = p.id
+                WHERE s.player_id IS NULL
+                   OR s.major_wins IS NULL
+                   OR s.major_wins = 0
+                   OR s.hltv_mvp IS NULL
+                   OR s.hltv_mvp = 0
+                ORDER BY p.nickname
+                """
+            ).fetchall()
+        finally:
+            conn.close()
+        roster = [r[0] for r in rows]
+        logger.info(f"Players missing statistics: {len(roster)}")
+    elif fill_missing:
+        # 补资料模式：挑出缺真实姓名或战队的选手。
+        # 注意：不要要求"战绩记录"也齐全——大多数 Liquipedia 页面
+        # 解析不出 major/MVP 数字，若把战绩算进名单条件，
+        # 几乎所有选手都会永远留在名单里，每次重跑都白爬一遍。
+        # 战绩仍会在抓取时尽力而为地写入，但不再阻塞名单缩减。
+        conn = sqlite3.connect(DB_PATH)
+        try:
+            rows = conn.execute(
+                """
+                SELECT p.nickname FROM players p
+                WHERE p.real_name IS NULL
+                   OR p.team IS NULL
+                ORDER BY p.nickname
+                """
+            ).fetchall()
+            done = conn.execute(
+                """
+                SELECT COUNT(*) FROM players
+                WHERE real_name IS NOT NULL AND team IS NOT NULL
+                """
+            ).fetchone()[0]
+        finally:
+            conn.close()
+        roster = [r[0] for r in rows]
+        logger.info(f"已有真实姓名+战队的选手: {done}")
+    else:
+        roster = read_roster()
 
     if only:
         roster = [n for n in roster if n.lower() == only]
@@ -243,11 +295,27 @@ if __name__ == "__main__":
 
     logger.info(f"Found {len(roster)} players in roster")
 
+    # ---- 批量模式：先用官方 API 一次性抓取所有选手的 Liquipedia 数据 ----
+    # 每次请求最多 50 个页面，把上千次请求压缩到几十次，避开 429 限流
+    wiki_cache = None
+    if liquipedia_batch and not prosettings_only:
+        from scraper.liquipedia_api import batch_scrape_liquipedia
+
+        logger.info(f"Batch-fetching Liquipedia for {len(roster)} players...")
+        wiki_cache = batch_scrape_liquipedia(roster)
+        found_count = sum(
+            1 for value in wiki_cache.values() if "error" not in value
+        )
+        logger.info(
+            f"Liquipedia batch done: {found_count} found, "
+            f"{len(roster) - found_count} missing"
+        )
+
     ok_count = 0
     failed = []
 
     for nickname in roster:
-        if incremental and not _should_update(nickname, max_age):
+        if incremental and not fill_missing and not _should_update(nickname, max_age):
             logger.info(f"跳过 {nickname}（{max_age} 天内已更新）")
             continue
 
@@ -256,7 +324,12 @@ if __name__ == "__main__":
             logger.info(f"Updating {nickname}...")
 
             ensure_player_exists(nickname)
-            update_player(nickname, skip_liquipedia=prosettings_only)
+            update_player(
+                nickname,
+                skip_liquipedia=prosettings_only or liquipedia_batch,
+                skip_prosettings=fill_missing or fill_stats,
+                wiki=(wiki_cache or {}).get(nickname) if liquipedia_batch else None,
+            )
 
             ok_count += 1
             logger.info(f"Successfully updated {nickname}")
@@ -266,8 +339,13 @@ if __name__ == "__main__":
             logger.error(f"Failed to update {nickname}: {e}")
 
         finally:
-            # 礼貌原则：两个选手之间隔 2 秒，避免触发网站限流
-                    time.sleep(random.uniform(1.5, 3.0))
+            # 礼貌原则：两个选手之间隔 3~6 秒，避免触发网站限流
+            # （实测节奏太快（约 13 个请求）就会触发 Liquipedia 429）
+            if liquipedia_batch and (fill_missing or fill_stats):
+                # 批量模式下 Liquipedia 已抓完，只是写库，不需要长等待
+                time.sleep(random.uniform(0.2, 0.5))
+            else:
+                time.sleep(random.uniform(3.0, 6.0))
 
     # 汇总报告
     logger.info("=" * 40)

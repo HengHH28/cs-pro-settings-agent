@@ -3,7 +3,8 @@ from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 import os
-
+# 项目根目录：根据当前文件位置自动推导，不写死路径
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from tools.player_settings import search_cs_player, get_player_settings_history
 from tools.database_query import query_players_database
 from tools.project_reader import (
@@ -67,10 +68,10 @@ Rules:
 # 编程 Agent：读写项目代码
 # ============================================================
 
-CODING_SYSTEM_PROMPT = """
+CODING_SYSTEM_PROMPT = f"""
 You are a Python Coding Agent working on the project:
 
-F:\\AI_project\\CS_Pro_Settings_Agent
+{PROJECT_ROOT}
 
 Your job is to help the user analyze, modify, and test this project.
 
