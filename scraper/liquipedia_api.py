@@ -514,6 +514,11 @@ def _extract_statistics(text):
                 ))
                 if count:
                     mvp = count
+                else:
+                    # 5) 叙述里的纯文本写法，如 "2 HLTV MVP"（无链接）
+                    m = re.search(r"\b(\d+)\s+HLTV\s+MVP\b", text, re.I)
+                    if m:
+                        mvp = int(m.group(1))
 
     if mvp:
         stats["hltv_mvp"] = mvp
